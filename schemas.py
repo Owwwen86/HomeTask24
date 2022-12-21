@@ -9,7 +9,7 @@ class RequestParamsSchema(Schema):
 
     @validates_schema
     def validate_cmd_params(self, values: Dict[str, str], *args: Any, **kwargs: Any) -> Dict[str, str]:
-        validate_cmd_commands = {'filter', 'sort', 'map', 'limit', 'unique'}
+        validate_cmd_commands = {'filter', 'sort', 'map', 'limit', 'unique', 'regex'}
 
         if values['cmd'] not in validate_cmd_commands:
             raise ValidationError({'cmd': f'contains invalid command={values["cmd"]}'})

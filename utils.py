@@ -7,9 +7,9 @@ def filter_query(param: str, data: list[str]) -> list[str]:
     return list(filter(lambda row: param in row, data))
 
 
-def regex_query(param: str, gen: Iterator[str]) -> Iterator[str]:
+def regex_query(param: str, data: list[str]) -> list[str]:
     pattern: re.Pattern = re.compile(param)
-    return filter(lambda x: re.search(pattern, x), gen)
+    return list(filter(lambda x: re.search(pattern, x), data))
 
 
 def map_query(param: str, data: list[str]) -> list[str]:
